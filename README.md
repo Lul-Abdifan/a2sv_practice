@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Task 1: Building Your First Card
 
-## Getting Started
+Objective:
 
-First, run the development server:
+Your task is to create a React component for a card resembling the one provided in the image below. Additionally, you need to populate this card with dummy data and include an avatar image.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Steps:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Design the Card: Create a React component that visually represents the card as closely as possible to the provided image. Pay attention to details such as layout, colors, and typography.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Prepare Dummy Data: Generate dummy data to populate the card. This data should include fields such as name, title, description, and any other relevant information you deem necessary for the card.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Add Avatar Image: Utilize the provided avatar image URL to incorporate an avatar image into the card. Ensure that the image is displayed properly within the designated area of the card.
 
-## Learn More
+4. Reach Out for Assistance: If you encounter any difficulties or have questions during the development process, do not hesitate to reach out to your mentors for assistance. They are here to support you and help you succeed in completing this task.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+UI References:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Job Card UI
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Figma file
