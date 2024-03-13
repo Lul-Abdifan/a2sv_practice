@@ -15,14 +15,14 @@ interface JobData {
   salary: string;
 }
 
-const jobsData: JobData[] = jobs;
+// const jobsData: JobData[] = jobs;
 
 const epilogue = Epilogue({ subsets: ["latin"] });
 
 const Card = ({}) => {
   return (
     <div className="flex flex-col gap-6">
-      {jobsData.map((job) => (
+      {jobs.map((job) => (
         <div
           key={job.description}
           className={` flex space-between gap-[24px] bg-white w-[919px] h-[266px] p-6 rounded-[30px] ${epilogue.className}`}
