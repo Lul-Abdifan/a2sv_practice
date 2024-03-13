@@ -1,3 +1,4 @@
+![a2sv_practice](https://github.com/Lul-Abdifan/a2sv_practice/assets/86189460/63d6ba23-487d-40a3-98d0-04e8297f60f9)
 Task 1: Building Your First Card
 
 Objective:
@@ -19,5 +20,6 @@ UI References:
 
 Job Card UI
 
+![a2sv_practice](https://github.com/Lul-Abdifan/a2sv_practice/assets/86189460/63d6ba23-487d-40a3-98d0-04e8297f60f9)
 
 Figma file
