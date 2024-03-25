@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Inter,Epilogue,Poppins } from "next/font/google";
+import { Inter, Epilogue, Poppins } from "next/font/google";
 import "./globals.css";
+import StoreProvider from "./StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
-const epilogue = Epilogue({ subsets: ["latin"], variable: '--font-epilogue', });
-const poppins = Poppins({ subsets:["latin"], weight: '900', variable: '--font-poppins', });
-
+const epilogue = Epilogue({ subsets: ["latin"], variable: "--font-epilogue" });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: "900",
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${epilogue.variable} ${poppins.variable}`}>
-      <body className={epilogue.className}>{children}</body>
+      <StoreProvider>
+        
+        <body className={epilogue.className}>{children}</body>
+      </StoreProvider>
     </html>
   );
 }

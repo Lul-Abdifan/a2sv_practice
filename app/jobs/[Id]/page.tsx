@@ -4,13 +4,28 @@ import { useParams } from "next/navigation";
 import { jobs } from "../dummyData";
 import Image from "next/image";
 import About from "@/components/about";
+import { AppDispatch,RootStore } from "@/lib/store";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchJobs } from "@/lib/features/jobs/jobSlice";
+import JobOpportunity from "@/lib/features/jobs/types";
 
 const DetailJob = () => {
+const { loading, error, jobs } = useSelector(
+    (store: RootStore) => store.jobs
+  );
+  const dispatch = useDispatch<AppDispatch>();
+  useEffect(() => {
+    dispatch(fetchJobs());
+  }, [dispatch]);
+
   const params = useParams<{ Id: string }>();
-  const detailId = parseInt(params.Id);
+  const detailId = params.Id
   console.log(detailId);
-  const detailData = jobs.find((data) => data.id === detailId);
+  const detailData = jobs.find((data:JobOpportunity) => data.id === detailId);
   console.log(detailData);
+
 
   return (
     <div className={`flex gap-[62px] p-[32px] w-full bg-[#FFFFFF]`}>
@@ -24,6 +39,45 @@ const DetailJob = () => {
           <div className="detail-left-page">
             <h1 className="detail-header">Responsibilities</h1>
             <div className="detail-topic-sub-description">
+            <div className="flex">
+              <Image
+                className="inline-block mr-2"
+                src="/CheckList.svg"
+                alt="vacto-image"
+                width={20}
+                height={20}
+              />
+              <h3>
+                Community engagement to ensure that is supported and actively
+                represented online
+              </h3>
+            </div>
+            <div className="flex">
+              <Image
+                className="inline-block mr-2"
+                src="/CheckList.svg"
+                alt="vacto-image"
+                width={20}
+                height={20}
+              />
+              <h3>
+                Community engagement to ensure that is supported and actively
+                represented online
+              </h3>
+            </div>
+            <div className="flex">
+              <Image
+                className="inline-block mr-2"
+                src="/CheckList.svg"
+                alt="vacto-image"
+                width={20}
+                height={20}
+              />
+              <h3>
+                Community engagement to ensure that is supported and actively
+                represented online
+              </h3>
+            </div>
               <div className="flex">
                 <Image
                   className="inline-block mr-2"
@@ -32,36 +86,8 @@ const DetailJob = () => {
                   width={20}
                   height={20}
                 />
-
                 <h3>
-                  Community engagement to ensure that is supported and actively
-                  represented online
-                </h3>
-              </div>
-              <div className="flex">
-                <Image
-                  className="inline-block mr-2"
-                  src="/CheckList.svg"
-                  alt="vacto-image"
-                  width={20}
-                  height={20}
-                />
-                <h3>
-                  Community engagement to ensure that is supported and actively
-                  represented online
-                </h3>
-              </div>
-              <div className="flex">
-                <Image
-                  className="inline-block mr-2"
-                  src="/CheckList.svg"
-                  alt="vacto-image"
-                  width={20}
-                  height={20}
-                />
-                <h3>
-                  Community engagement to ensure that is supported and actively
-                  represented online
+                  {detailData?.responsibilities}
                 </h3>
               </div>
             </div>
@@ -96,6 +122,11 @@ const DetailJob = () => {
           <div className="detail-left-page">
             <h1 className="detail-header">Ideal Candidate we want</h1>
             <ul className="detail-topic-sub-description">
+            <li>
+                <span className="ideal-candidate-span">
+                  {detailData?.idealCandidate}
+                </span>
+              </li>
               <li>
                 <span className="ideal-candidate-span">
                   Young(18-24 year old) Female social media manager
@@ -138,8 +169,7 @@ const DetailJob = () => {
                 />
               </div>
               <h3 className="detail-topic-sub-description">
-                The onboading event for this event will take place in Jan 18th,
-                2023 in AAU Auditorium
+                {detailData?.whenAndWhere}
               </h3>
             </div>
           </div>
