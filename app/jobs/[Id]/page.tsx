@@ -1,83 +1,46 @@
 "use client";
 import React from "react";
 import { useParams } from "next/navigation";
-import { jobs } from "../dummyData";
 import Image from "next/image";
 import About from "@/components/about";
-import { AppDispatch,RootStore } from "@/lib/store";
+import { AppDispatch, RootStore } from "@/lib/store";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchJobs } from "@/lib/features/jobs/jobSlice";
 import JobOpportunity from "@/lib/features/jobs/types";
+import Loading from "@/components/Loading";
+import { fetchJobById } from "@/lib/features/jobs/jobSlice";
 
 const DetailJob = () => {
-const { loading, error, jobs } = useSelector(
+  const { selectedJob, loading } = useSelector(
     (store: RootStore) => store.jobs
   );
   const dispatch = useDispatch<AppDispatch>();
-  useEffect(() => {
-    dispatch(fetchJobs());
-  }, [dispatch]);
 
   const params = useParams<{ Id: string }>();
-  const detailId = params.Id
-  console.log(detailId);
-  const detailData = jobs.find((data:JobOpportunity) => data.id === detailId);
-  console.log(detailData);
+  const detailId = params.Id;
 
+  useEffect(() => {
+    if (detailId) {
+      dispatch(fetchJobById(detailId));
+    }
+  }, [dispatch, detailId]);
 
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className={`flex gap-[62px] p-[32px] w-full bg-[#FFFFFF]`}>
       <div className="flex flex-col w-[60%] mx-auto  gap-[55px] pt-[46px]">
         <div className="detail-left-page">
           <h1 className="detail-header">Description</h1>
           <div className="detail-topic-sub-description">
-            <p>{detailData?.description}</p>
+            <p>{selectedJob?.description}</p>
           </div>
 
           <div className="detail-left-page">
             <h1 className="detail-header">Responsibilities</h1>
             <div className="detail-topic-sub-description">
-            <div className="flex">
-              <Image
-                className="inline-block mr-2"
-                src="/CheckList.svg"
-                alt="vacto-image"
-                width={20}
-                height={20}
-              />
-              <h3>
-                Community engagement to ensure that is supported and actively
-                represented online
-              </h3>
-            </div>
-            <div className="flex">
-              <Image
-                className="inline-block mr-2"
-                src="/CheckList.svg"
-                alt="vacto-image"
-                width={20}
-                height={20}
-              />
-              <h3>
-                Community engagement to ensure that is supported and actively
-                represented online
-              </h3>
-            </div>
-            <div className="flex">
-              <Image
-                className="inline-block mr-2"
-                src="/CheckList.svg"
-                alt="vacto-image"
-                width={20}
-                height={20}
-              />
-              <h3>
-                Community engagement to ensure that is supported and actively
-                represented online
-              </h3>
-            </div>
               <div className="flex">
                 <Image
                   className="inline-block mr-2"
@@ -87,8 +50,45 @@ const { loading, error, jobs } = useSelector(
                   height={20}
                 />
                 <h3>
-                  {detailData?.responsibilities}
+                  Community engagement to ensure that is supported and actively
+                  represented online
                 </h3>
+              </div>
+              <div className="flex">
+                <Image
+                  className="inline-block mr-2"
+                  src="/CheckList.svg"
+                  alt="vacto-image"
+                  width={20}
+                  height={20}
+                />
+                <h3>
+                  Community engagement to ensure that is supported and actively
+                  represented online
+                </h3>
+              </div>
+              <div className="flex">
+                <Image
+                  className="inline-block mr-2"
+                  src="/CheckList.svg"
+                  alt="vacto-image"
+                  width={20}
+                  height={20}
+                />
+                <h3>
+                  Community engagement to ensure that is supported and actively
+                  represented online
+                </h3>
+              </div>
+              <div className="flex">
+                <Image
+                  className="inline-block mr-2"
+                  src="/CheckList.svg"
+                  alt="vacto-image"
+                  width={20}
+                  height={20}
+                />
+                <h3>{selectedJob?.responsibilities}</h3>
               </div>
             </div>
             <div className="flex">
@@ -122,9 +122,9 @@ const { loading, error, jobs } = useSelector(
           <div className="detail-left-page">
             <h1 className="detail-header">Ideal Candidate we want</h1>
             <ul className="detail-topic-sub-description">
-            <li>
+              <li>
                 <span className="ideal-candidate-span">
-                  {detailData?.idealCandidate}
+                  {selectedJob?.idealCandidate}
                 </span>
               </li>
               <li>
@@ -169,7 +169,7 @@ const { loading, error, jobs } = useSelector(
                 />
               </div>
               <h3 className="detail-topic-sub-description">
-                {detailData?.whenAndWhere}
+                {selectedJob?.whenAndWhere}
               </h3>
             </div>
           </div>
