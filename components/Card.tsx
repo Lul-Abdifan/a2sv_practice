@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { AppDispatch, RootStore, store } from "@/lib/store";
 import JobOpportunity from "@/lib/features/jobs/types";
+import Loading from "./Loading";
 
 const CardElement = () => {
   const { loading, error, jobs } = useSelector(
@@ -23,6 +24,8 @@ const CardElement = () => {
   if (jobs.length > 0) {
     console.log(jobs);
   }
+
+
 
   return (
     <div className="flex flex-col gap-6 p-12 items-center ">
