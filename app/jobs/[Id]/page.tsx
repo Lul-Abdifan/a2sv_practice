@@ -29,6 +29,8 @@ const DetailJob = () => {
   if (loading) {
     return <Loading />;
   }
+
+  console.log(selectedJob)
   return (
     <div className={`flex gap-[62px] p-[32px] w-full bg-[#FFFFFF]`}>
       <div className="flex flex-col w-[60%] mx-auto  gap-[55px] pt-[46px]">
@@ -190,13 +192,13 @@ const DetailJob = () => {
               className="text-[12px] font-semibold bg-[#FFB836] bg-opacity-10
    text-[#FFB836] py-[6px] px-[10px] rounded-[80px]"
             >
-              Marketing
+              {selectedJob?.categories[0]}
             </button>
             <button
               className="text-[12px] font-semibold bg-[#56CDAD] bg-opacity-10
    text-[#56CDAD] py-[6px] px-[10px] rounded-[80px]"
             >
-              Design
+              {selectedJob?.categories[1]}
             </button>
           </div>
           <div className="border-for-all"></div>
@@ -204,9 +206,9 @@ const DetailJob = () => {
         <div className="flex flex-col gap-5 w-[293.5px]">
           <h1 className="detail-header">Required Skills</h1>
           <div className="flex flex-row flex-wrap gap-4 text-base text-[#4640DE]  font-normal leading-7 ">
-            <h3 className="bg-required-lists">Social Media Marketing</h3>
-            <h3 className="bg-required-lists">English</h3>
-            <h3 className="bg-required-lists">Copywriting</h3>
+            <h3 className="bg-required-lists">{selectedJob?.requiredSkills[0]}</h3>
+            <h3 className="bg-required-lists">{selectedJob?.requiredSkills[1]}</h3>
+            <h3 className="bg-required-lists">{selectedJob?.requiredSkills[1]}</h3>
           </div>
         </div>
       </div>
