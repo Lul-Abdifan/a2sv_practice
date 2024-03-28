@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+ul {
+  list-style-type: disc;
+  padding-left: 30px;
+}
+.detail-header {
+ @apply text-[24px] leading-[28.8px] text-[#25324B] font-poppins font-black
+ 
+
+}
+
+.detail-left-page{
+ @apply flex flex-col gap-[16px]
+}
+.detail-topic-sub-description {
+  @apply flex flex-col gap-2 text-base text-[#25324B] font-normal leading-7 
+}
+.border-for-all{
+  @apply  border-[#D6DDEB] border-solid border-b-[1px] w-[293.5px]
+}
+
+.bg-required-lists{
+  @apply bg-[#F8F8FD] py-[4px] px-[12px]
+}
+.about-elements-style{
+  @apply flex flex-row justify-center items-center p-2.5 border-[1px] border-[#D6DDEB] rounded-[50px]
+}
+.ideal-candidate-span{
+  @apply text-[#25324B] text-base font-normal
+}
+.about-darkened{
+  @apply text-black font-semibold leading-[25.6] ideal-candidate-span
+
+}
+.signin-label {
+  @apply text-[16px] font-semibold font-epilogue leading-6;
+}
+.sign-in-line{
+  @apply h-0 w-24 border-[#D6DDEB] border-t-2
+}
+.autho-sign-style{
+  @apply text-[32px] leading-[38px] font-black mx-auto
+}
+/* .sing-button{
+  @apply w-full bg- rounded-[80px] text-white px-6 py-3
+} */
