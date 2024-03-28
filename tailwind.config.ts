@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors:
+      {
+        primary: '#4640DE',
+        secondary: '#25324B',
+        third:'#202430'
+
+        
+        
+      },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
         epilogue: ['var(--font-epilogue)'],
@@ -18,6 +27,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+ 
 
     },
   },
